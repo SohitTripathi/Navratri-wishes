@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Navratri!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            /* Enhanced Navratri Theme Background: Gradient + Pattern + Animation */
+            background: 
+                linear-gradient(to bottom right, rgba(255, 77, 77, 0.8), rgba(255, 107, 107, 0.8), rgba(255, 140, 140, 0.8), rgba(255, 175, 175, 0.8)), /* Overlay gradient */
+                url('https://www.transparenttextures.com/patterns/indian-temple.png'); /* Subtle pattern */
+            background-size: cover, 200px 200px; /* Cover for gradient, tile for pattern */
+            background-attachment: fixed; /* Keeps background fixed during scroll (if any) */
+            animation: backgroundPan 60s linear infinite; /* Slow, subtle pan animation */
+            color: #5d0000; /* Darker red/maroon for text */
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background panning animation */
+        @keyframes backgroundPan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 200%; } /* Pan twice the size of pattern */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.4); /* Slightly less opaque overlay */
+            z-index: 1;
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 245, 245, 0.95); /* Light pink/cream background */
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            width: 550px;
+            box-sizing: border-box;
+            animation: fadeIn 1.5s ease-out;
+            border: 3px solid #d4af37; /* Golden border */
+            margin-top: 70px; /* Ad space ke liye margin top */
+            margin-bottom: 20px; /* Optional: adjust if content is too close to bottom */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        h1 {
+            font-family: 'Merriweather', serif;
+            color: #a00000; /* Deep red for heading */
+            margin-bottom: 25px;
+            font-size: 3em;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background-color: #d4af37; /* Golden line */
+            margin: 15px auto 0;
+            border-radius: 3px;
+        }
+        #greetingMessage {
+            font-family: 'Merriweather', serif;
+            font-size: 2.2em;
+            color: #a00000; /* Deep red for greeting */
+            margin-bottom: 30px;
+            font-weight: bold;
+            display: none;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid #a00000;
+            animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+            padding-right: 5px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Typing effect (unchanged) */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #a00000; }
+        }
+
+        #laxmiGif {
+            max-width: 90%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 4px solid #d4af37; /* Golden border for GIF */
+            transition: transform 0.3s ease;
+        }
+        #laxmiGif:hover {
+            transform: scale(1.02);
+        }
+        .input-group {
+            margin-bottom: 25px;
+        }
+        label {
+            font-weight: 600;
+            color: #5d0000;
+            font-size: 1.1em;
+        }
+        input[type="text"] {
+            width: calc(100% - 24px);
+            padding: 14px;
+            margin-top: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1.05em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fffaf0; /* Creamy background */
+        }
+        input[type="text"]:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+            outline: none;
+        }
+        button {
+            background-color: #d4af37; /* Golden button */
+            color: #4a2c0f; /* Dark brown text */
+            padding: 14px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        button:hover {
+            background-color: #c0a030; /* Darker golden on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* WhatsApp Share Button Specifics (unchanged) */
+        .whatsapp-button {
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .whatsapp-button:hover {
+            background-color: #1DA851;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .whatsapp-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+
+        #shareLinkContainer {
+            margin-top: 30px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        #shareLink {
+            background-color: #fff8dc; /* Light golden background */
+            border: 1px dashed #d4af37;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 1em;
+            word-break: break-all;
+            margin-top: 15px;
+            color: #5a3a1d;
+            max-width: 100%;
+            overflow-x: auto;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+        #shareLink:hover {
+            background-color: #ffe0b3;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .instructions {
+            margin-top: 18px;
+            font-size: 0.95em;
+            color: #6a4a2d;
+            font-style: italic;
+        }
+
+        /* Star/Diya animation for Navratri (subtler, perhaps more like glowing diyas) */
+        .star {
+            position: absolute;
+            background-color: #ffcc00; /* Golden yellow for diya glow */
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 5s infinite ease-in-out;
+            box-shadow: 0 0 8px #ffcc00, 0 0 15px #ff9900; /* Stronger glow */
+            z-index: 0;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.6); }
+            50% { opacity: 0.9; transform: scale(1.1); } /* More prominent glow */
+        }
+
+        /* Firecracker Effect (unchanged from last update, but less emphasis for Navratri) */
+        .firecracker {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            opacity: 0;
+            animation: explode 1s forwards ease-out;
+            z-index: 10;
+        }
+
+        @keyframes explode {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+        }
+
+        .firecracker-particle {
+            position: absolute;
+            background-color: var(--particle-color);
+            border-radius: 50%;
+            opacity: 0;
+            animation: fadeOutAndMove 1s forwards ease-out;
+            z-index: 10;
+        }
+
+        @keyframes fadeOutAndMove {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--dx), var(--dy)) scale(0.1); opacity: 0; }
+        }
+
+        /* Ad container styling for TOP */
+        .ad-container {
+            position: fixed; /* Fixed position at the top */
+            top: 0; /* Changed from bottom: 0 */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0;
+            background-color: rgba(255, 245, 245, 0.9); /* Light background for ad */
+            border-bottom: 1px solid #d4af37; /* Changed from border-top */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Shadow at the bottom of the ad */
+            z-index: 100; /* Ensure it's above other elements */
+            box-sizing: border-box;
+            min-height: 60px; /* Minimum height for the ad */
+        }
+    </style>
+</head>
+<body>
+    <!-- Ad Container at the TOP -->
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'b9c16062e9d92751111990b8be23b678',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/b9c16062e9d92751111990b8be23b678/invoke.js"></script>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="container">
+        <h1 id="mainTitle">शुभ नवरात्रि!</h1>
+        <p id="greetingMessage"></p>
+        <img id="laxmiGif" src="laxmi.gif" alt="Maa Laxmi">
+
+        <div id="nameInputSection">
+            <div class="input-group">
+                <label for="userName">अपना शुभ नाम दर्ज करें:</label>
+                <input type="text" id="userName" placeholder="आपका नाम">
+            </div>
+            <!-- WhatsApp Share Button -->
+            <button class="whatsapp-button" onclick="generateAndShareWhatsApp()">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="whatsapp-icon">
+                WhatsApp पर शुभकामनाएं भेजें
+            </button>
+        </div>
+
+        <div id="shareLinkContainer">
+            <p>यह शुभ लिंक अपने प्रियजनों के साथ साझा करें:</p>
+            <div id="shareLink" onclick="copyLink()"></div>
+            <p class="instructions">लिंक कॉपी करने के लिए उस पर क्लिक करें।</p>
+            <button onclick="resetPage()">नया लिंक जनरेट करें</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const senderName = urlParams.get('sender');
+            const greetingMessage = document.getElementById('greetingMessage');
+            const mainTitle = document.getElementById('mainTitle');
+            const nameInputSection = document.getElementById('nameInputSection');
+            const shareLinkContainer = document.getElementById('shareLinkContainer');
+
+            if (senderName) {
+                mainTitle.style.display = 'none';
+                greetingMessage.style.display = 'block';
+                const messageText = `शुभ नवरात्रि! ${decodeURIComponent(senderName)} ने आपको हार्दिक शुभकामनाएं भेजी हैं।`;
+                
+                let i = 0;
+                greetingMessage.textContent = '';
+                const typingEffect = setInterval(() => {
+                    if (i < messageText.length) {
+                        greetingMessage.textContent += messageText.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typingEffect);
+                        greetingMessage.style.borderRight = 'none';
+                        setTimeout(triggerFirecrackers, 500); 
+                    }
+                }, 70);
+
+                nameInputSection.style.display = 'block'; // Still show input for recipient to send
+                shareLinkContainer.style.display = 'none'; // Hide share options if received
+            } else {
+                nameInputSection.style.display = 'block';
+                shareLinkContainer.style.display = 'none';
+                greetingMessage.style.display = 'none';
+            }
+
+            // Generate "Diyas" or glowing stars for Navratri
+            for (let i = 0; i < 40; i++) {
+                createStar();
+            }
+        });
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = star.style.height = `${Math.random() * 8 + 5}px`; /* Slightly larger glow */
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDelay = `${Math.random() * 7}s`; /* Longer, more varied delay */
+            document.body.appendChild(star);
+        }
+
+        function generateAndShareWhatsApp() {
+            const userName = document.getElementById('userName').value.trim();
+            if (userName === '') {
+                alert('कृपया अपना शुभ नाम दर्ज करें!');
+                return;
+            }
+
+            const currentUrl = window.location.href.split('?')[0];
+            const encodedName = encodeURIComponent(userName);
+            const shareableLink = `${currentUrl}?sender=${encodedName}`;
+
+            const whatsappMessage = `आपको और आपके परिवार को ${userName} की ओर से नवरात्रि की हार्दिक शुभकामनाएं! 🙏✨ इस खूबसूरत संदेश को देखने के लिए क्लिक करें: ${shareableLink}`;
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.open(whatsappUrl, '_blank');
+
+            document.getElementById('shareLink').textContent = shareableLink;
+            document.getElementById('nameInputSection').style.display = 'none';
+            document.getElementById('shareLinkContainer').style.display = 'flex';
+            document.getElementById('mainTitle').style.display = 'none';
+            document.getElementById('greetingMessage').style.display = 'block';
+            document.getElementById('greetingMessage').textContent = `शानदार! अब WhatsApp पर शेयर करें या लिंक कॉपी करें।`;
+            document.getElementById('greetingMessage').style.animation = 'none';
+            document.getElementById('greetingMessage').style.borderRight = 'none';
+            document.getElementById('greetingMessage').style.width = 'auto';
+            document.getElementById('greetingMessage').style.display = 'flex';
+        }
+
+        function copyLink() {
+            const shareLinkElement = document.getElementById('shareLink');
+            const textToCopy = shareLinkElement.textContent;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('लिंक सफलतापूर्वक कॉपी हो गया है!');
+            }).catch(err => {
+                console.error('लिंक कॉपी करने में विफल रहा:', err);
+                alert('लिंक कॉपी करने में विफल रहा। कृपया मैन्युअल रूप से कॉपी करें।');
+            });
+        }
+
+        function resetPage() {
+            window.location.href = window.location.href.split('?')[0];
+        }
+
+        const firecrackerColors = ['#FFD700', '#FF4500', '#FF6347', '#ADFF2F', '#1E90FF', '#BA55D3', '#FFA07A', '#EE82EE'];
+        const NUMBER_OF_FIRECRACKERS = 15;
+
+        function triggerFirecrackers() {
+            for (let i = 0; i < NUMBER_OF_FIRECRACKERS; i++) {
+                setTimeout(() => {
+                    createFirecracker();
+                }, i * 300);
+            }
+        }
+
+        function createFirecracker() {
+            const firecracker = document.createElement('div');
+            firecracker.classList.add('firecracker');
+            
+            const startX = Math.random() * (window.innerWidth * 0.6) + (window.innerWidth * 0.2);
+            const startY = window.innerHeight * 0.8;
+
+            firecracker.style.left = `${startX}px`;
+            firecracker.style.top = `${startY}px`;
+
+            const endX = startX + (Math.random() - 0.5) * 300;
+            const endY = startY - (Math.random() * 400 + 200);
+            
+            firecracker.style.setProperty('--x', `${endX - startX}px`);
+            firecracker.style.setProperty('--y', `${endY - startY}px`);
+
+            document.body.appendChild(firecracker);
+
+            firecracker.addEventListener('animationend', () => {
+                firecracker.remove();
+                createExplosion(endX, endY);
+            });
+        }
+
+        function createExplosion(x, y) {
+            const numberOfParticles = 30 + Math.floor(Math.random() * 15);
+            const explosionColor = firecrackerColors[Math.floor(Math.random() * firecrackerColors.length)];
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('firecracker-particle');
+                
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.width = particle.style.height = `${Math.random() * 5 + 3}px`;
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 80 + 40;
+                
+                particle.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+                particle.style.setProperty('--dy', `${Math.sin(angle) * distance}px`);
+                particle.style.setProperty('--particle-color', explosionColor);
+                particle.style.animationDelay = `${Math.random() * 0.15}s`;
+
+                document.body.appendChild(particle);
+
+                particle.addEventListener('animationend', () => {
+                    particle.remove();
+                });
+            }
+        }
+
+    </script>
+</body>
+</html>
